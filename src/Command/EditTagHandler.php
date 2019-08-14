@@ -90,7 +90,7 @@ class EditTagHandler
         $this->validator->assertValid($tag->getDirty());
 
         if ($tag->isDirty('is_restricted') && ! $tag->is_restricted) {
-            Permission::where('permission', 'like', 'tag' . $tag->id . '.%')->delete();
+            Permission::where('permission', 'like', 'tag'.$tag->id.'.%')->delete();
         }
 
         $tag->save();
